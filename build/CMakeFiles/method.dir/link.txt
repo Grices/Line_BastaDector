@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmethod.a  CMakeFiles/method.dir/src/method.cpp.o
+/usr/bin/ranlib libmethod.a

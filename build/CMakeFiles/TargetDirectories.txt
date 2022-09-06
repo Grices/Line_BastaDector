@@ -1,0 +1,4 @@
+/home/penghua/BasestaDect/build/CMakeFiles/rebuild_cache.dir
+/home/penghua/BasestaDect/build/CMakeFiles/edit_cache.dir
+/home/penghua/BasestaDect/build/CMakeFiles/BASESTADECT.dir
+/home/penghua/BasestaDect/build/CMakeFiles/method.dir

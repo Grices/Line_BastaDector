@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbasedock.a  CMakeFiles/basedock.dir/src/method.cpp.o
+/usr/bin/ranlib libbasedock.a

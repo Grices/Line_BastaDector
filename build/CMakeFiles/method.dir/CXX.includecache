@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/penghua/BasestaDect/src/include/attribute.h
+vector
+-
+array
+-
+list
+-
+
+/home/penghua/BasestaDect/src/method.cpp
+cmath
+-
+include/attribute.h
+/home/penghua/BasestaDect/src/include/attribute.h
+

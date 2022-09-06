@@ -17,9 +17,9 @@ std::vector<attribute::Line>* getTarget(std::vector<attribute::Points>& pointclo
     std::list<std::vector<attribute::Points>>::iterator poi_iter = ori_poin.cluster.begin();
     while(poi_iter != ori_poin.cluster.end())
     {
-        // µãÔÆÆ½»¬ ¿½±´¹¹Ôì
+        // ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         std::vector<attribute::Points> candi_point(attribute::preSmooth(*poi_iter));
-        // ´æ´¢ÖÐ¼äµã
+        // ï¿½æ´¢ï¿½Ð¼ï¿½ï¿½
         std::vector<attribute::Points> tmp_point;
         tmp_point.reserve(candi_point.size());
         std::vector<attribute::Points>::iterator begi = candi_point.begin();
@@ -79,10 +79,12 @@ bool lineRelation(attribute::Line& base, attribute::Line& side)
     { return false; }
 }
 
-attribute::Points goalPoint(std::vector<attribute::Line>* pre_line)
+attribute::Points* goalPoint(std::vector<attribute::Line>* pre_line)
 {
     const float base_maxlen = 350.0f;
     const float base_minlen = 280.0f;
+    attribute::Points* goal = new attribute::Points;
+    goal = nullptr;
 
     for(auto i = pre_line->begin(); i != pre_line->end(); i++)
     {
@@ -92,21 +94,21 @@ attribute::Points goalPoint(std::vector<attribute::Line>* pre_line)
             {
                 if(lineRelation(*i, *(i + 1)))
                 {
-                    return (*i).midpoi();
+                    *goal = (*i).midpoi();
                 }
             }
             else if(i == (pre_line->end() - 1))
             {
                 if(lineRelation(*i, *(i - 1)))
                 {
-                    return (*i).midpoi();
+                    *goal = (*i).midpoi();
                 }
             }
             else
             {
                 if(lineRelation(*i, *(i - 1)) || lineRelation(*i, *(i + 1)))
                 {
-                    return (*i).midpoi();
+                    *goal = (*i).midpoi();
                 }
             }
         }
@@ -115,6 +117,7 @@ attribute::Points goalPoint(std::vector<attribute::Line>* pre_line)
             continue;
         }
     }
+    return goal;
 }
 
 #endif

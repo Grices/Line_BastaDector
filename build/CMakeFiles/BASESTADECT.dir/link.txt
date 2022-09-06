@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/BASESTADECT.dir/src/linextra.cpp.o  -o BASESTADECT  libmethod.a 
