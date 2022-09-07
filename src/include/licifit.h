@@ -19,9 +19,9 @@ namespace lsfitting
     inline attribute::Line leastSquare(const std::vector<attribute::Points>& vec_point)
     {
         int size = vec_point.size();
-        attribute::Line fit_line;
-        float x_mean;
-        float y_mean;
+
+        float x_mean = 0.0f;
+        float y_mean = 0.0f;
 
         for(int i = 0; i < size; i++)
         {
@@ -31,7 +31,7 @@ namespace lsfitting
         x_mean /= size;
         y_mean /= size;
 
-        float Dxx = 0, Dxy = 0, Dyy = 0;
+        float Dxx = 0.0f, Dxy = 0.0f, Dyy = 0.0f;
         for(int j = 0; j < size; j++)
         {
             Dxx += (vec_point[j].x - x_mean) * (vec_point[j].x - x_mean);
@@ -44,11 +44,11 @@ namespace lsfitting
         float fb = (lambda - Dxx) / den;
         float fc = -fa * x_mean - fb * y_mean;
         float lk = -fa / fb;
+        attribute::Line fit_line(fa, fb, fc);
+        // fit_line.A = fa;
+        // fit_line.B = fb;
+        // fit_line.C = fc;
         float sig = fitSigma(vec_point, fit_line);
-
-        fit_line.A = fa;
-        fit_line.B = fb;
-        fit_line.C = fc;
         fit_line.slope = lk;
         fit_line.sigma = sig;
         

@@ -123,19 +123,6 @@ BASESTADECT/fast:
 	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/build
 .PHONY : BASESTADECT/fast
 
-#=============================================================================
-# Target rules for targets named method
-
-# Build rule for target.
-method: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 method
-.PHONY : method
-
-# fast build rule for target.
-method/fast:
-	$(MAKE) -f CMakeFiles/method.dir/build.make CMakeFiles/method.dir/build
-.PHONY : method/fast
-
 src/linextra.o: src/linextra.cpp.o
 
 .PHONY : src/linextra.o
@@ -163,33 +150,6 @@ src/linextra.cpp.s:
 	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/src/linextra.cpp.s
 .PHONY : src/linextra.cpp.s
 
-src/method.o: src/method.cpp.o
-
-.PHONY : src/method.o
-
-# target to build an object file
-src/method.cpp.o:
-	$(MAKE) -f CMakeFiles/method.dir/build.make CMakeFiles/method.dir/src/method.cpp.o
-.PHONY : src/method.cpp.o
-
-src/method.i: src/method.cpp.i
-
-.PHONY : src/method.i
-
-# target to preprocess a source file
-src/method.cpp.i:
-	$(MAKE) -f CMakeFiles/method.dir/build.make CMakeFiles/method.dir/src/method.cpp.i
-.PHONY : src/method.cpp.i
-
-src/method.s: src/method.cpp.s
-
-.PHONY : src/method.s
-
-# target to generate assembly for a file
-src/method.cpp.s:
-	$(MAKE) -f CMakeFiles/method.dir/build.make CMakeFiles/method.dir/src/method.cpp.s
-.PHONY : src/method.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -199,13 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... BASESTADECT"
-	@echo "... method"
 	@echo "... src/linextra.o"
 	@echo "... src/linextra.i"
 	@echo "... src/linextra.s"
-	@echo "... src/method.o"
-	@echo "... src/method.i"
-	@echo "... src/method.s"
 .PHONY : help
 
 

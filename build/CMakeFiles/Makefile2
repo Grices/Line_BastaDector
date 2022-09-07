@@ -54,7 +54,6 @@ CMAKE_BINARY_DIR = /home/penghua/BasestaDect/build
 
 # The main recursive "all" target.
 all: CMakeFiles/BASESTADECT.dir/all
-all: CMakeFiles/method.dir/all
 
 .PHONY : all
 
@@ -65,7 +64,6 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/BASESTADECT.dir/clean
-clean: CMakeFiles/method.dir/clean
 
 .PHONY : clean
 
@@ -73,7 +71,7 @@ clean: CMakeFiles/method.dir/clean
 # Target rules for target CMakeFiles/BASESTADECT.dir
 
 # All Build rule for target.
-CMakeFiles/BASESTADECT.dir/all: CMakeFiles/method.dir/all
+CMakeFiles/BASESTADECT.dir/all:
 	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/depend
 	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/penghua/BasestaDect/build/CMakeFiles --progress-num=1,2 "Built target BASESTADECT"
@@ -81,7 +79,7 @@ CMakeFiles/BASESTADECT.dir/all: CMakeFiles/method.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BASESTADECT.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/penghua/BasestaDect/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/penghua/BasestaDect/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/BASESTADECT.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/penghua/BasestaDect/build/CMakeFiles 0
 .PHONY : CMakeFiles/BASESTADECT.dir/rule
@@ -95,33 +93,6 @@ BASESTADECT: CMakeFiles/BASESTADECT.dir/rule
 CMakeFiles/BASESTADECT.dir/clean:
 	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/clean
 .PHONY : CMakeFiles/BASESTADECT.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/method.dir
-
-# All Build rule for target.
-CMakeFiles/method.dir/all:
-	$(MAKE) -f CMakeFiles/method.dir/build.make CMakeFiles/method.dir/depend
-	$(MAKE) -f CMakeFiles/method.dir/build.make CMakeFiles/method.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/penghua/BasestaDect/build/CMakeFiles --progress-num=3,4 "Built target method"
-.PHONY : CMakeFiles/method.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/method.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/penghua/BasestaDect/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/method.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/penghua/BasestaDect/build/CMakeFiles 0
-.PHONY : CMakeFiles/method.dir/rule
-
-# Convenience name for target.
-method: CMakeFiles/method.dir/rule
-
-.PHONY : method
-
-# clean rule for target.
-CMakeFiles/method.dir/clean:
-	$(MAKE) -f CMakeFiles/method.dir/build.make CMakeFiles/method.dir/clean
-.PHONY : CMakeFiles/method.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

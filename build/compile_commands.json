@@ -1,12 +1,7 @@
 [
 {
   "directory": "/home/penghua/BasestaDect/build",
-  "command": "/usr/bin/g++   -I/home/penghua/BasestaDect/src  -g   -o CMakeFiles/BASESTADECT.dir/src/linextra.cpp.o -c /home/penghua/BasestaDect/src/linextra.cpp",
+  "command": "/usr/bin/g++   -I/home/penghua/BasestaDect/src  -g   -Wall -g -o CMakeFiles/BASESTADECT.dir/src/linextra.cpp.o -c /home/penghua/BasestaDect/src/linextra.cpp",
   "file": "/home/penghua/BasestaDect/src/linextra.cpp"
-},
-{
-  "directory": "/home/penghua/BasestaDect/build",
-  "command": "/usr/bin/g++   -I/home/penghua/BasestaDect/src  -g   -o CMakeFiles/method.dir/src/method.cpp.o -c /home/penghua/BasestaDect/src/method.cpp",
-  "file": "/home/penghua/BasestaDect/src/method.cpp"
 }
 ]

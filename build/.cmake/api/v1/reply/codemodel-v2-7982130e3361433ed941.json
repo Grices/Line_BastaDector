@@ -14,8 +14,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
 					]
 				}
 			],
@@ -30,8 +29,7 @@
 					"name" : "BASESTADECT",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
 					]
 				}
 			],
@@ -40,15 +38,8 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "BASESTADECT::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-BASESTADECT-Debug-8b45ca588b4bed0ce35d.json",
+					"jsonFile" : "target-BASESTADECT-Debug-8883aa62e0e8e5b29682.json",
 					"name" : "BASESTADECT",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 0,
-					"id" : "method::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-method-Debug-7b2da4e1cb6c1829c53f.json",
-					"name" : "method",
 					"projectIndex" : 0
 				}
 			]
