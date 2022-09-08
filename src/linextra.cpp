@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "include/release.h"
 #include "include/dataread.h"
 
@@ -22,14 +23,15 @@ int main()
     }
     else
     {
-        ReadtoPoints test_points(filepath);
-        std::cout << "test_points size: " << test_points.mf_points.size() << std::endl;
-        for(auto i = test_points.mf_points.begin(); i != test_points.mf_points.end()-60; i++)
+        ReadtoPoints input_points(filepath);
+        std::cout << "input_fps size: " << input_points.mf_points.size() << std::endl;
+        for(auto i = input_points.mf_points.begin(); i != input_points.mf_points.end()-70; i++)
         {
+            std::cout << "point size: " << i->size() << std::endl;
             Extrali ptg(*i);
             if(ptg.target != NULL)
             {
-                std::cout << ptg.target->x << ", " << ptg.target->y << std::endl;
+                std::cout << "GOAL: " << ptg.target->x << ", " << ptg.target->y << std::endl;
             }
             else
             {

@@ -5,24 +5,33 @@
 
 std::vector<attribute::Line>* getTarget(std::vector<attribute::Points>& pointcloud_)
 {
-    constexpr float euci_thres = 30.0f;
-    constexpr unsigned int min_sum = 30;
-    constexpr float sig_max = 20.0f;
+    constexpr float euci_thres = 200.0f;
+    constexpr unsigned int min_sum = 30; // 簇的最少点数
+    // constexpr float sig_max = 20.0f;
 
     attribute::Scancluster ori_poin(pointcloud_, euci_thres);
+    std::cout << "origin cluster: " << ori_poin.cluster.size() << std::endl;
+    
     ori_poin.delSmalldis(min_sum);
+    std::cout << "delete less-point cluster: " << ori_poin.cluster.size() << std::endl;
 
     std::vector<attribute::Line>* line_seg = new std::vector<attribute::Line>;
     line_seg->reserve(pointcloud_.size() / min_sum);
 
+    std::vector<attribute::Points> candi_point;
+    candi_point.reserve(pointcloud_.size() / min_sum);
+
+    // for(auto poi_iter = ori_poin.cluster.begin(); poi_iter != ori_poin.cluster.end(); poi_iter++)
     std::list<std::vector<attribute::Points>>::iterator poi_iter = ori_poin.cluster.begin();
     while(poi_iter != ori_poin.cluster.end())
-    // for(auto poi_iter = ori_poin.cluster.begin(); poi_iter != ori_poin.cluster.end(); poi_iter++)
     {
-        std::vector<attribute::Points> candi_point(attribute::preSmooth(*poi_iter));
-        poi_iter++;
+        // std::vector<attribute::Points> candi_point(attribute::preSmooth(*poi_iter)); // 拷贝构造
+        candi_point.clear();
+        candi_point = attribute::preSmooth(*(poi_iter));
+
         std::vector<attribute::Points> tmp_point;
         tmp_point.reserve(candi_point.size());
+        poi_iter++;
         // std::vector<attribute::Points>::iterator begi = candi_point.begin();
         // while(begi < candi_point.end())
         for(std::vector<attribute::Points>::iterator begi = candi_point.begin(); begi != candi_point.end(); begi++)
@@ -37,7 +46,8 @@ std::vector<attribute::Line>* getTarget(std::vector<attribute::Points>& pointclo
             {
                 tmp_point.push_back(*ptr);
                 attribute::Line miline = lsfitting::leastSquare(tmp_point);
-                if((abs(miline.slope - scope) > 0.001f) || (miline.sigma > sig_max))
+                // if((abs(miline.slope - scope) > 0.001f) || (miline.sigma > sig_max))
+                if(!(fabs(miline.slope - scope) < 0.01f))
                 {
                     tmp_point.pop_back();
                     if(tmp_point.size() < 3)
@@ -93,11 +103,15 @@ attribute::Points* goalPoint(std::vector<attribute::Line>* pre_line)
     const float base_minlen = 280.0f;
     attribute::Points* goal = new attribute::Points;
     goal = nullptr;
+
     std::cout << "pre_line size: " << pre_line->size() << std::endl;
+    
     for(auto i = pre_line->begin(); i != pre_line->end(); i++)
     {
         float preline_len = attribute::Line::length(*i);
-        std::cout << preline_len << std::endl;
+        
+        std::cout << "line length: " << preline_len << std::endl;
+        
         if(preline_len > base_minlen && preline_len < base_maxlen)
         {
             if(i == pre_line->begin())

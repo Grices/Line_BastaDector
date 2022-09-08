@@ -37,9 +37,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "BASESTADECT::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-BASESTADECT-Debug-8883aa62e0e8e5b29682.json",
-					"name" : "BASESTADECT",
+					"id" : "WRITEFILE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-WRITEFILE-Debug-321ce1d30eca835f09ce.json",
+					"name" : "WRITEFILE",
 					"projectIndex" : 0
 				}
 			]

@@ -20,6 +20,7 @@ class ReadtoPoints
     public:
         std::vector<attribute::Points> m_read_points;
         std::vector<std::vector<attribute::Points>> mf_points;
+        
     public:
         // std::vector<attribute::Points>& GetPoints(void)
         // {
@@ -41,7 +42,7 @@ class ReadtoPoints
                 {
                     iFile.read((char*)(&data_size), sizeof(data_size));
                     this->m_read_points.clear();
-                    this->m_read_points.reserve(450);
+                    this->m_read_points.reserve(data_size);
                     for(int i = 0; i < data_size; ++i)
                     {
                         lds_point tmp;
@@ -50,6 +51,7 @@ class ReadtoPoints
                         m_read_points.emplace_back(tnp);
                     }
                     this->mf_points.emplace_back(m_read_points);
+                    // std::cout << mf_points.size() << ", " << mf_points.front().size() << std::endl;
                 }
             }
             iFile.close();

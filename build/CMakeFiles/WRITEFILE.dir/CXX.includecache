@@ -18,18 +18,6 @@ array
 list
 -
 
-/home/penghua/BasestaDect/src/include/dataread.h
-iostream
--
-vector
--
-fstream
--
-string
--
-attribute.h
-/home/penghua/BasestaDect/src/include/attribute.h
-
 /home/penghua/BasestaDect/src/include/licifit.h
 cmath
 -
@@ -40,13 +28,15 @@ attribute.h
 licifit.h
 /home/penghua/BasestaDect/src/include/licifit.h
 
-/home/penghua/BasestaDect/src/linextra.cpp
+/home/penghua/BasestaDect/src/writefile.cpp
 iostream
 -
 fstream
 -
+string
+-
+vector
+-
 include/release.h
 /home/penghua/BasestaDect/src/include/release.h
-include/dataread.h
-/home/penghua/BasestaDect/src/include/dataread.h
 

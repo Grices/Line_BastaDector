@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named BASESTADECT
+# Target rules for targets named WRITEFILE
 
 # Build rule for target.
-BASESTADECT: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 BASESTADECT
-.PHONY : BASESTADECT
+WRITEFILE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 WRITEFILE
+.PHONY : WRITEFILE
 
 # fast build rule for target.
-BASESTADECT/fast:
-	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/build
-.PHONY : BASESTADECT/fast
+WRITEFILE/fast:
+	$(MAKE) -f CMakeFiles/WRITEFILE.dir/build.make CMakeFiles/WRITEFILE.dir/build
+.PHONY : WRITEFILE/fast
 
-src/linextra.o: src/linextra.cpp.o
+src/writefile.o: src/writefile.cpp.o
 
-.PHONY : src/linextra.o
+.PHONY : src/writefile.o
 
 # target to build an object file
-src/linextra.cpp.o:
-	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/src/linextra.cpp.o
-.PHONY : src/linextra.cpp.o
+src/writefile.cpp.o:
+	$(MAKE) -f CMakeFiles/WRITEFILE.dir/build.make CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o
+.PHONY : src/writefile.cpp.o
 
-src/linextra.i: src/linextra.cpp.i
+src/writefile.i: src/writefile.cpp.i
 
-.PHONY : src/linextra.i
+.PHONY : src/writefile.i
 
 # target to preprocess a source file
-src/linextra.cpp.i:
-	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/src/linextra.cpp.i
-.PHONY : src/linextra.cpp.i
+src/writefile.cpp.i:
+	$(MAKE) -f CMakeFiles/WRITEFILE.dir/build.make CMakeFiles/WRITEFILE.dir/src/writefile.cpp.i
+.PHONY : src/writefile.cpp.i
 
-src/linextra.s: src/linextra.cpp.s
+src/writefile.s: src/writefile.cpp.s
 
-.PHONY : src/linextra.s
+.PHONY : src/writefile.s
 
 # target to generate assembly for a file
-src/linextra.cpp.s:
-	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/src/linextra.cpp.s
-.PHONY : src/linextra.cpp.s
+src/writefile.cpp.s:
+	$(MAKE) -f CMakeFiles/WRITEFILE.dir/build.make CMakeFiles/WRITEFILE.dir/src/writefile.cpp.s
+.PHONY : src/writefile.cpp.s
 
 # Help Target
 help:
@@ -158,10 +158,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... BASESTADECT"
-	@echo "... src/linextra.o"
-	@echo "... src/linextra.i"
-	@echo "... src/linextra.s"
+	@echo "... WRITEFILE"
+	@echo "... src/writefile.o"
+	@echo "... src/writefile.i"
+	@echo "... src/writefile.s"
 .PHONY : help
 
 

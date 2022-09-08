@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o  -o WRITEFILE 

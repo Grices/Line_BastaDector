@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <array>
 #include <list>
 
@@ -120,12 +121,12 @@ std::vector<Points> preSmooth(std::vector<Points>& prepoi)
     for(std::vector<attribute::Points>::iterator poi_smo = prepoi.begin() + 1; poi_smo != prepoi.end(); poi_smo++)
     {
         // if((*poi_smo).chebyshev_Dis(*(poi_smo - 1), 15.0))
-        if(Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), 15.0))
+        if(Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), 20.0))
         {
-            (*poi_smo).x = (*(poi_smo)).x;
+            (*poi_smo).x = (*(poi_smo - 1)).x;
         }
         // if(!((*poi_smo).chebyshev_Dis(*(poi_smo - 1), -15.0)))
-        if(Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), -15.0))
+        if(!Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), -20.0))
         {
             (*poi_smo).y = (*(poi_smo - 1)).y;
         }

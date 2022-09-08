@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/penghua/BasestaDect/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/BASESTADECT.dir/all
+all: CMakeFiles/WRITEFILE.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/BASESTADECT.dir/clean
+clean: CMakeFiles/WRITEFILE.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/BASESTADECT.dir
+# Target rules for target CMakeFiles/WRITEFILE.dir
 
 # All Build rule for target.
-CMakeFiles/BASESTADECT.dir/all:
-	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/depend
-	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/penghua/BasestaDect/build/CMakeFiles --progress-num=1,2 "Built target BASESTADECT"
-.PHONY : CMakeFiles/BASESTADECT.dir/all
+CMakeFiles/WRITEFILE.dir/all:
+	$(MAKE) -f CMakeFiles/WRITEFILE.dir/build.make CMakeFiles/WRITEFILE.dir/depend
+	$(MAKE) -f CMakeFiles/WRITEFILE.dir/build.make CMakeFiles/WRITEFILE.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/penghua/BasestaDect/build/CMakeFiles --progress-num=1,2 "Built target WRITEFILE"
+.PHONY : CMakeFiles/WRITEFILE.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/BASESTADECT.dir/rule: cmake_check_build_system
+CMakeFiles/WRITEFILE.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/penghua/BasestaDect/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/BASESTADECT.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/WRITEFILE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/penghua/BasestaDect/build/CMakeFiles 0
-.PHONY : CMakeFiles/BASESTADECT.dir/rule
+.PHONY : CMakeFiles/WRITEFILE.dir/rule
 
 # Convenience name for target.
-BASESTADECT: CMakeFiles/BASESTADECT.dir/rule
+WRITEFILE: CMakeFiles/WRITEFILE.dir/rule
 
-.PHONY : BASESTADECT
+.PHONY : WRITEFILE
 
 # clean rule for target.
-CMakeFiles/BASESTADECT.dir/clean:
-	$(MAKE) -f CMakeFiles/BASESTADECT.dir/build.make CMakeFiles/BASESTADECT.dir/clean
-.PHONY : CMakeFiles/BASESTADECT.dir/clean
+CMakeFiles/WRITEFILE.dir/clean:
+	$(MAKE) -f CMakeFiles/WRITEFILE.dir/build.make CMakeFiles/WRITEFILE.dir/clean
+.PHONY : CMakeFiles/WRITEFILE.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

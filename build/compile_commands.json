@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/penghua/BasestaDect/build",
-  "command": "/usr/bin/g++   -I/home/penghua/BasestaDect/src  -g   -Wall -g -o CMakeFiles/BASESTADECT.dir/src/linextra.cpp.o -c /home/penghua/BasestaDect/src/linextra.cpp",
-  "file": "/home/penghua/BasestaDect/src/linextra.cpp"
+  "command": "/usr/bin/g++   -I/home/penghua/BasestaDect/src  -g   -Wall -g -o CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o -c /home/penghua/BasestaDect/src/writefile.cpp",
+  "file": "/home/penghua/BasestaDect/src/writefile.cpp"
 }
 ]
