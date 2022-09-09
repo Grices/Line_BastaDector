@@ -6,36 +6,41 @@
 std::vector<attribute::Line>* getTarget(std::vector<attribute::Points>& pointcloud_)
 {
     constexpr float euci_thres = 200.0f;
-    constexpr unsigned int min_sum = 30; // 簇的最少点数
+    constexpr unsigned int min_sum = 10; // 簇的最少点数
+    constexpr float smo_thres = 20.0;    // 锐化阈值 
     // constexpr float sig_max = 20.0f;
-
+    // 按照距离为所有点分类
     attribute::Scancluster ori_poin(pointcloud_, euci_thres);
     std::cout << "origin cluster: " << ori_poin.cluster.size() << std::endl;
-    
+    // 删除点数少于min_sum的类
     ori_poin.delSmalldis(min_sum);
     std::cout << "delete less-point cluster: " << ori_poin.cluster.size() << std::endl;
-
+    // 定义存储线的容器并预留大小
     std::vector<attribute::Line>* line_seg = new std::vector<attribute::Line>;
-    line_seg->reserve(pointcloud_.size() / min_sum);
-
+    line_seg->reserve(20);
+    // 存储平滑后的点簇并预留大小
     std::vector<attribute::Points> candi_point;
-    candi_point.reserve(pointcloud_.size() / min_sum);
+    // candi_point.reserve(200);
 
     // for(auto poi_iter = ori_poin.cluster.begin(); poi_iter != ori_poin.cluster.end(); poi_iter++)
     std::list<std::vector<attribute::Points>>::iterator poi_iter = ori_poin.cluster.begin();
     while(poi_iter != ori_poin.cluster.end())
     {
         // std::vector<attribute::Points> candi_point(attribute::preSmooth(*poi_iter)); // 拷贝构造
+        candi_point.reserve((*poi_iter).size());
         candi_point.clear();
-        candi_point = attribute::preSmooth(*(poi_iter));
-
+        // 数据平滑
+        candi_point = attribute::preSmooth(*(poi_iter), smo_thres);
+        // 存放临时的激光点并预留空间
         std::vector<attribute::Points> tmp_point;
         tmp_point.reserve(candi_point.size());
+
         poi_iter++;
         // std::vector<attribute::Points>::iterator begi = candi_point.begin();
         // while(begi < candi_point.end())
         for(std::vector<attribute::Points>::iterator begi = candi_point.begin(); begi != candi_point.end(); begi++)
         {
+            // 将前两个点放入容器并拟合
             tmp_point.clear();
             tmp_point.push_back(*begi);
             tmp_point.push_back(*(begi + 1));
@@ -110,7 +115,7 @@ attribute::Points* goalPoint(std::vector<attribute::Line>* pre_line)
     {
         float preline_len = attribute::Line::length(*i);
         
-        std::cout << "line length: " << preline_len << std::endl;
+        std::cout << "line length: " << preline_len << " A: " << i->A << " B: " << i->B<< " C: " << i->C << std::endl;
         
         if(preline_len > base_minlen && preline_len < base_maxlen)
         {

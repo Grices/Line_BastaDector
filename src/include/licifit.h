@@ -1,19 +1,18 @@
 #ifndef _LICIFIT_H_
 #define _LICIFIT_H_
 
-#include <cmath>
 #include "attribute.h"
 
 namespace lsfitting
 {
     float fitSigma(const std::vector<attribute::Points>& point, const attribute::Line& line)
     {
-        float sigma_sum = 0;
+        float sigma = 0;
         for(auto i = point.begin(); i != point.end(); i++)
         {
-            sigma_sum += fabs(((i->x) * line.A + (i->y) * line.B + line.C) / sqrt(pow(line.A, 2) + pow(line.B, 2)));
+            sigma += fabs(((i->x) * line.A + (i->y) * line.B + line.C) / sqrt(pow(line.A, 2) + pow(line.B, 2)));
         }
-        return sigma_sum;
+        return sqrt(sigma / point.size());
     }
 
     inline attribute::Line leastSquare(const std::vector<attribute::Points>& vec_point)
@@ -39,6 +38,7 @@ namespace lsfitting
             Dyy += (vec_point[j].y - y_mean) * (vec_point[j].y - y_mean);
         }
         float lambda = ((Dxx + Dyy) - sqrt((Dxx - Dyy) * (Dxx - Dyy) + 4 * Dxy * Dxy)) / 2.0;
+        // if(lambda < 0.00001f) {lambda = 0.0f;}
         float den = sqrt(Dxy * Dxy + (lambda - Dxx) * (lambda - Dxx));
         float fa = Dxy / den;
         float fb = (lambda - Dxx) / den;
@@ -53,6 +53,19 @@ namespace lsfitting
         fit_line.sigma = sig;
         
         return fit_line;
+    }
+
+    float vectJudge(const std::vector<attribute::Points>& vec_poin, const attribute::Points& pan_poin)
+    {
+        // 容器向量 [x1, y1]
+        std::array<float, 2> vec = {vec_poin.back().x - vec_poin.front().x, vec_poin.back().y - vec_poin.front().y};
+        float vec_len = attribute::Points::euclid_Dis(vec_poin.back(), vec_poin.front());   
+        // 新向量 [x2, y2]
+        std::array<float, 2> pan = {pan_poin.x - vec_poin.back().x, pan_poin.y - vec_poin.back().y};
+        float pan_len = attribute::Points::euclid_Dis(pan_poin, vec_poin.back());
+        //向量夹角
+        float vec_theta = acos((vec[0] * pan[0] + vec[1] * pan[1]) / (vec_len * pan_len));
+        return vec_theta;
     }
 
 }

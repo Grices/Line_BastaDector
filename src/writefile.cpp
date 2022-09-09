@@ -41,7 +41,7 @@ class Readdata
                         attribute::Points tnp(tmp.x, tmp.y, tmp.dis, tmp.theta, tmp.power);
                         this->mread_point.emplace_back(tnp);
                     }
-
+                /* 预处理 */
                 // attribute::Scancluster ori_poin(this->mread_point, 30.0); // 欧式距离聚类
                 // ori_poin.delSmalldis(30); // 删除点数过小的簇
                 // std::vector<attribute::Points> cav; //平滑
@@ -50,7 +50,6 @@ class Readdata
                 //     char filepath[128]; //循环写入
                 //     std::sprintf(filepath, "/home/penghua/BasestaDect/src/dztz_%d.csv", fileti); //循环写入
                 //     std::ofstream oFile(filepath, std::ios::trunc | std::ios::binary); //循环写入
-
                 //     // for(auto y = x->begin(); y != x->end(); y++)
                 //     cav.clear(); //平滑
                 //     cav = attribute::preSmooth(*x); //平滑
@@ -69,7 +68,7 @@ class Readdata
                 for(auto k = lisd->begin(); k != lisd->end(); k++)
                 {
                     char filepath[128]; //循环写入
-                    std::sprintf(filepath, "/home/penghua/BasestaDect/src/dztz_%d.csv", fileti); //循环写入
+                    std::sprintf(filepath, "/home/penghua/BasestaDect/src/csv_data/dztz_%d.csv", fileti); //循环写入
                     std::ofstream oFile(filepath, std::ios::trunc | std::ios::binary); //循环写入
                     for(auto l = k->combine.begin(); l != k->combine.end(); l++)
                     {
@@ -77,6 +76,15 @@ class Readdata
                     }
                     oFile.close(); //循环写入
                     fileti++; //循环写入
+                }
+                attribute::Points* target = goalPoint(getTarget(this->mread_point));
+                if(target != NULL)
+                {
+                    std::cout << "GOAL: " << target->x << ", " << target->y << std::endl;
+                }
+                else
+                {
+                    std::cout << "There is no target" << std::endl;
                 }
 
                 /* 原始数据 */

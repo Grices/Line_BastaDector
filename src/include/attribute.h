@@ -110,23 +110,23 @@ class Scancluster
             }
         }
 };
-
+// 点线距离
 float linepoi_Dis(const Line& line, const Points& point)
 {
     return fabs((line.A * point.x + line.B * point.y + line.C) / sqrt(pow(line.A, 2) + pow(line.B, 2)));
 }
-
-std::vector<Points> preSmooth(std::vector<Points>& prepoi)
+// 锐化平滑函数
+std::vector<Points> preSmooth(std::vector<Points>& prepoi, float smo_thre)
 {
     for(std::vector<attribute::Points>::iterator poi_smo = prepoi.begin() + 1; poi_smo != prepoi.end(); poi_smo++)
     {
         // if((*poi_smo).chebyshev_Dis(*(poi_smo - 1), 15.0))
-        if(Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), 20.0))
+        if(Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), smo_thre))
         {
             (*poi_smo).x = (*(poi_smo - 1)).x;
         }
         // if(!((*poi_smo).chebyshev_Dis(*(poi_smo - 1), -15.0)))
-        if(!Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), -20.0))
+        if(!Points::chebyshev_Dis(*poi_smo, *(poi_smo - 1), -smo_thre))
         {
             (*poi_smo).y = (*(poi_smo - 1)).y;
         }
