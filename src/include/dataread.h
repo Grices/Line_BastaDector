@@ -47,7 +47,8 @@ class ReadtoPoints
                     {
                         lds_point tmp;
                         iFile.read(reinterpret_cast<char*>(&tmp), sizeof(lds_point));
-                        attribute::Points tnp(tmp.x, tmp.y, tmp.dis, tmp.theta, tmp.power);
+                        // attribute::Points tnp(tmp.x, tmp.y, tmp.dis, tmp.theta, tmp.power);
+                        attribute::Points tnp(tmp.x, tmp.y);
                         m_read_points.emplace_back(tnp);
                     }
                     this->mf_points.emplace_back(m_read_points);

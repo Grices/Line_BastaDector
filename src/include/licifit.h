@@ -43,14 +43,16 @@ namespace lsfitting
         float fa = Dxy / den;
         float fb = (lambda - Dxx) / den;
         float fc = -fa * x_mean - fb * y_mean;
-        float lk = -fa / fb;
+        // float lk = -fa / fb;
         attribute::Line fit_line(fa, fb, fc);
+        fit_line.combine = vec_point;
         // fit_line.A = fa;
         // fit_line.B = fb;
         // fit_line.C = fc;
-        float sig = fitSigma(vec_point, fit_line);
-        fit_line.slope = lk;
-        fit_line.sigma = sig;
+
+        // float sig = fitSigma(vec_point, fit_line);
+        // fit_line.slope = lk;
+        // fit_line.sigma = sig;
         
         return fit_line;
     }

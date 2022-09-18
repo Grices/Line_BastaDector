@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include "include/release.h"
+#include "include/resbyfit.h"
+#include "include/resbyvec.h"
 #include "include/dataread.h"
 
 class Extrali
@@ -10,7 +11,7 @@ class Extrali
     public:
         Extrali(std::vector<attribute::Points>& scanpoints)
         {
-            this->target = goalPoint(getTarget(scanpoints));
+            this->target = getGoal(getVect(scanpoints));
         }
 }; 
 
@@ -25,7 +26,7 @@ int main()
     {
         ReadtoPoints input_points(filepath);
         std::cout << "input_fps size: " << input_points.mf_points.size() << std::endl;
-        for(auto i = input_points.mf_points.begin(); i != input_points.mf_points.end()-70; i++)
+        for(auto i = input_points.mf_points.begin(); i != input_points.mf_points.end(); i++)
         {
             std::cout << "point size: " << i->size() << std::endl;
             Extrali ptg(*i);

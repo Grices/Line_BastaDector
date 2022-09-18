@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/penghua/BasestaDect/build",
-  "command": "/usr/bin/g++   -I/home/penghua/BasestaDect/src  -g   -Wall -g -o CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o -c /home/penghua/BasestaDect/src/writefile.cpp",
+  "command": "/usr/bin/g++   -I/home/penghua/BasestaDect/src -I/home/penghua/BasestaDect/include -I\"/home/penghua/BasestaDect/&{catkin_INCLUDE_DIRS}\" -I/usr/local/include/pcl-1.12 -I/usr/local/include/eigen3 -I/usr/local/include/vtk-9.2  -g   -Wall -g -o CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o -c /home/penghua/BasestaDect/src/writefile.cpp",
   "file": "/home/penghua/BasestaDect/src/writefile.cpp"
 }
 ]
