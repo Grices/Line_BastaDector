@@ -1,5 +1,5 @@
-#include <pcl/point_cloud.h>
-#include <Eigen/Dense>
+// #include <pcl/point_cloud.h>
+// #include <Eigen/Dense>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -21,7 +21,7 @@ class Readdata
     public:
         void operator()(void)
         {
-            std::ifstream iFile("/home/penghua/BasestaDect/src/lds_pointdz.bin", std::ios::binary);
+            std::ifstream iFile("/home/penghua/BasestaDect/src/dzbin_data/lds_pointdz.bin", std::ios::binary);
             if(!iFile.is_open())
             {
                 std::cout << "File not exits. " << std::endl;
@@ -32,8 +32,6 @@ class Readdata
                 int datasize = 0;
                 int fileti = 0; //循环写入
 
-                std::ofstream oFile("/home/penghua/BasestaDect/src/dz0.csv", std::ios::trunc | std::ios::binary); //单个写入
-                oFile.seekp(std::ios::beg); //单个写入
                 iFile.read((char*)(&datasize), sizeof(datasize));
                 this->mread_point.clear();
                 this->mread_point.reserve(datasize);
@@ -46,25 +44,43 @@ class Readdata
                     this->mread_point.emplace_back(tnp);
                 }
 
+
+                /* 原始数据 */
+                std::ofstream oFile("/home/penghua/BasestaDect/src/dz0.csv", std::ios::trunc | std::ios::binary); //单个写入
+                oFile.seekp(std::ios::beg);
+                
+                for(std::vector<attribute::Points>::iterator j = mread_point.begin(); j != mread_point.end(); j++)
+                {
+                    if(abs(j->x) <3000.0f && abs(j->y) < 3000.0f) 
+                    {
+                        oFile << j->x << "," << j->y << std::endl;
+                    }
+                }
+
                 /* 预处理 */
-                // attribute::Scancluster ori_poin(this->mread_point, 50.0); // 欧式距离聚类
-                // // ori_poin.delSmalldis(30); // 删除点数过小的簇
+                // attribute::Sacnpcluter ori_poin(this->mread_point, 130);
+                // ori_poin.deleteSmall(10);
+                // ori_poin.mergeCluster(100.0f);
+
                 // std::vector<attribute::Points> cav; //平滑
                 // for(auto x = ori_poin.cluster.begin(); x != ori_poin.cluster.end(); x++)
                 // {
-                //     // char filepath[128]; //循环写入
-                //     // std::sprintf(filepath, "/home/penghua/BasestaDect/src/dztz_%d.csv", fileti); //循环写入
-                //     // std::ofstream oFile(filepath, std::ios::trunc | std::ios::binary); //循环写入
+                //     char filepath[128]; //循环写入
+                //     std::sprintf(filepath, "/home/penghua/BasestaDect/src/csv_data/dztz_%d.csv", fileti); //循环写入
+                //     std::ofstream oFile(filepath, std::ios::trunc | std::ios::binary); //循环写入
                 //     // for(auto y = x->begin(); y != x->end(); y++)
                 //     cav.clear(); //平滑
-                //     cav = attribute::preSmooth(*x, 20); //平滑
+                //     cav = attribute::meanFilter(*x, 3);
+                //     cav = attribute::downSampling(cav);
+                //     // cav = attribute::laplaceSharpen(cav);
+                //     cav = attribute::preSmooth(cav); //平滑
                 //     for(auto y = cav.begin(); y != cav.end(); y++) //平滑
                 //     {
                 //         // std::cout << y->x << "," << y->y << "," << y->dis << "," << y->theta << "," << y->power << std::endl;
-                //         oFile << y->x << "," << y->y << "," << y->dis << "," << y->theta << "," << y->power << std::endl;
+                //         oFile << y->x << "," << y->y << std::endl;
                 //     }
-                //     // oFile.close(); //循环写入
-                //     // fileti++; //循环写入
+
+                //     fileti++; //循环写入
                 // }
 
                 /* 提取线段 */
@@ -109,23 +125,17 @@ class Readdata
                 }
 
                 /* 获取目标点 */
-                attribute::Points* point = getGoal(getVect(this->mread_point));
-                if(point != NULL)
-                {
-                    std::cout << point->x << ", " << point->y << std::endl;
-                }
-                else
-                { 
-                    std::cout << "There is no goal." << std::endl; 
-                }
+                // attribute::Points* point = getGoal(getVect(this->mread_point));
+                // if(point != NULL)
+                // {
+                //     std::cout << point->x << ", " << point->y << std::endl;
+                // }
+                // else
+                // { 
+                //     std::cout << "There is no goal." << std::endl; 
+                // }
                 // delete point;
 
-                /* 原始数据 */
-                // oFile.seekp(std::ios::beg);
-                // for(std::vector<attribute::Points>::iterator j = mread_point.begin(); j != mread_point.end(); j++)
-                // {
-                //     oFile << j->x << "," << j->y << "," << j->dis << "," << j->theta << "," << j->power << std::endl;
-                // }
 
                 // oFile.close(); //单个写入
             }

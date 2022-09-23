@@ -7,7 +7,7 @@ std::vector<attribute::Line>* getTarget(std::vector<attribute::Points>& pointclo
 {
     constexpr float euci_thres = 200.0f;
     constexpr unsigned int min_sum = 10; // 簇的最少点数
-    constexpr float smo_thres = 20.0;    // 锐化阈值 
+    // constexpr float smo_thres = 20.0;    // 锐化阈值 
     // constexpr float sig_max = 20.0f;
     // 按照距离为所有点分类
     attribute::Scancluster ori_poin(pointcloud_, euci_thres);
@@ -30,7 +30,7 @@ std::vector<attribute::Line>* getTarget(std::vector<attribute::Points>& pointclo
         candi_point.reserve((*poi_iter).size());
         candi_point.clear();
         // 数据平滑
-        candi_point = attribute::preSmooth(*(poi_iter), smo_thres);
+        candi_point = attribute::preSmooth(*(poi_iter));
         // 存放临时的激光点并预留空间
         std::vector<attribute::Points> tmp_point;
         tmp_point.reserve(candi_point.size());

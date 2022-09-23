@@ -9,15 +9,17 @@
 /home/penghua/BasestaDect/src/rabbit.cpp
 iostream
 -
+numeric
+-
 pcl/io/io.h
+-
+pcl/common/io.h
 -
 pcl/io/pcd_io.h
 -
 pcl/io/ply_io.h
 -
 pcl/visualization/cloud_viewer.h
--
-numeric
 -
 
 /usr/local/include/eigen3/Eigen/Cholesky

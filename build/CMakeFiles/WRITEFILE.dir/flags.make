@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -Wall -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/penghua/BasestaDect/src -I/home/penghua/BasestaDect/include -I"/home/penghua/BasestaDect/&{catkin_INCLUDE_DIRS}" -I/usr/local/include/pcl-1.12 -I/usr/local/include/eigen3 -I/usr/local/include/vtk-9.2 
+CXX_INCLUDES = -I/home/penghua/BasestaDect/src 
 

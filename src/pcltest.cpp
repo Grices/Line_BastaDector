@@ -1,9 +1,10 @@
 #include <iostream>
+#include <numeric>
 #include <pcl/io/io.h>
+#include <pcl/common/io.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/io/ply_io.h>
 #include <pcl/visualization/cloud_viewer.h>
-#include <numeric>
 
  
 void viewerOneOff(pcl::visualization::PCLVisualizer& viewer) 
@@ -26,6 +27,6 @@ int main()
  
 	viewer.showCloud(cloud);
 	viewer.runOnVisualizationThreadOnce(viewerOneOff);
-	system("pause");
+
 	return 0;
 }

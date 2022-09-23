@@ -14,12 +14,12 @@ float poiDistan(const attribute::Points& p, const attribute::Points& q)
 }
 
 
-std::vector<attribute::Vect> getVect(const std::vector<attribute::Points>& pointcloud_)
+std::vector<attribute::Vect> getVect(std::vector<attribute::Points>& pointcloud_)
 {
-    const float min_cludis = 250.0f;
-    const unsigned int min_pois = 5;
-    const float smo_dis = 10.0f;
-    const float max_vec = 300.0f;
+    const float min_cludis = 130.0f;
+    const unsigned int min_pois = 10;
+    const int fli_width = 3;
+    // const float max_vec = 300.0f;
     // 聚类预处理 list<vector<points>>
     attribute::Scancluster ori_poin(pointcloud_, min_cludis);
     ori_poin.delSmalldis(min_pois);
@@ -27,19 +27,22 @@ std::vector<attribute::Vect> getVect(const std::vector<attribute::Points>& point
     std::vector<attribute::Vect> vect_seg;
     vect_seg.reserve(pointcloud_.size() / 2);
 
+    std::vector<attribute::Points> candi_point;
     // 遍历所有点集合
     auto poi_iter = ori_poin.cluster.begin();
     while(poi_iter != ori_poin.cluster.end())
     {
-        // 平滑
-        std::vector<attribute::Points> candi_point(attribute::preSmooth(*poi_iter, smo_dis));
+        // std::vector<attribute::Points> candi_point(attribute::meanFilter(*poi_iter, smo_width));
+        candi_point.clear();
+        candi_point = attribute::meanFilter(*poi_iter, fli_width);
+        candi_point = attribute::downSampling(candi_point);
+        candi_point = attribute::preSmooth(candi_point);
+        poi_iter++;
+
         // 临时存储
         std::vector<attribute::Points> tmp_pois;
         tmp_pois.reserve(candi_point.size());
-        
-        poi_iter++;
-
-        // 遍历集合中所有点
+        // 遍历聚类中的点
         for(auto begi = candi_point.begin(); begi < candi_point.end(); begi++)
         {
             tmp_pois.clear();
@@ -48,25 +51,26 @@ std::vector<attribute::Vect> getVect(const std::vector<attribute::Points>& point
             
             attribute::Vect midvect(tmp_pois.front(), tmp_pois.back());
             // std::cout << midvect.length << ", " << tmp_pois.size() << std::endl;
-            if(midvect.length > max_vec)
-            { continue; }
+            // if(midvect.length > max_vec)
+            // { continue; }
 
             for(auto ptr = begi + 2; ptr < candi_point.end(); ptr++)
             {
-                tmp_pois.push_back(*(ptr + 1));
+                tmp_pois.push_back(*ptr);
                 attribute::Vect midvect_m(tmp_pois.front(), *(tmp_pois.end() - 2));
                 attribute::Vect midvect_n(*(tmp_pois.end()-2), tmp_pois.back());
                 // 计算向量夹角
                 // float between_ang = acos((midvect_m.vec[0] * midvect_n.vec[0] + midvect_m.vec[1] * midvect_n.vec[1]) / (midvect_m.length * midvect_n.length)); 
                 float between_ang = vectAngle(midvect_m, midvect_n);
-                // 向量夹角 > 60度
-                if(between_ang > 0.001f)
+                std::cout << between_ang << std::endl;
+                // 向量夹角 > 40度(弧度 0.689)
+                if(between_ang > 0.698f)
                 {
                     tmp_pois.pop_back();
                     // attribute::Line eline =lsfitting::leastSquare(tmp_pois);
                     // line_seg->push_back(eline);
                     attribute::Vect resu_vect(tmp_pois);
-                    if(resu_vect.com.size() < 3 && resu_vect.length < 70.0)
+                    if(resu_vect.com.size() < 5 && resu_vect.length < 100.0)
                     {
                         // begi = ptr - 1;
                         break;
@@ -75,7 +79,7 @@ std::vector<attribute::Vect> getVect(const std::vector<attribute::Points>& point
                     {
                         // std::cout << "q1: " << between_ang << std::endl;
                         vect_seg.push_back(resu_vect);
-                        begi = ptr - 1;
+                        begi = ptr - 2;
                         break;
                     }
                 }
@@ -118,6 +122,8 @@ attribute::Points* getGoal(const std::vector<attribute::Vect>& vec_set)
     {
         (*goal_poi).x = (tmp_vec.begin().base()->com.front().x + tmp_vec.begin().base()->com.back().x) / 2;
         (*goal_poi).y = (tmp_vec.begin().base()->com.front().y + tmp_vec.begin().base()->com.back().y) / 2;
+
+        
         return goal_poi;
     }
     // 检测到两条边
@@ -138,7 +144,7 @@ attribute::Points* getGoal(const std::vector<attribute::Vect>& vec_set)
                 if(tmp_vec.front().vec[0] < 0.001f)
                 {
                     if(goal_poi->x < 0) {goal_poi->x += 950.0f;}
-                    else {goal_poi->x -= 950.f;}
+                    else {goal_poi->x -= 950.0f;}
                 }
                 else if(tmp_vec.front().vec[1] < 0.001f)
                 {

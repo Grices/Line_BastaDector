@@ -25,19 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 33,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
 				"line" : 5,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 7,
 				"parent" : 0
 			}
 		]
@@ -56,26 +50,6 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/penghua/BasestaDect/src"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "/home/penghua/BasestaDect/include"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "/home/penghua/BasestaDect/&{catkin_INCLUDE_DIRS}"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "/usr/local/include/pcl-1.12"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "/usr/local/include/eigen3"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "/usr/local/include/vtk-9.2"
 				}
 			],
 			"language" : "CXX",

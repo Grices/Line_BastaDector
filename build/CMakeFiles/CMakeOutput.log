@@ -461,3 +461,115 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3a7a5/fast && /usr/bin/make -f CMakeFiles/cmTC_3a7a5.dir/build.make CMakeFiles/cmTC_3a7a5.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3a7a5.dir/CheckIncludeFile.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTC_3a7a5.dir/CheckIncludeFile.c.o   -c /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3a7a5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a7a5.dir/link.txt --verbose=1
+/usr/bin/gcc      CMakeFiles/cmTC_3a7a5.dir/CheckIncludeFile.c.o  -o cmTC_3a7a5 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ea9e9/fast && /usr/bin/make -f CMakeFiles/cmTC_ea9e9.dir/build.make CMakeFiles/cmTC_ea9e9.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ea9e9.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ea9e9.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ea9e9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea9e9.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_ea9e9.dir/CheckFunctionExists.c.o  -o cmTC_ea9e9  -lpthread 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_85cba/fast && /usr/bin/make -f CMakeFiles/cmTC_85cba.dir/build.make CMakeFiles/cmTC_85cba.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_85cba.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_85cba.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_85cba
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85cba.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTC_85cba.dir/CheckFunctionExists.c.o  -o cmTC_85cba  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_62cec/fast && /usr/bin/make -f CMakeFiles/cmTC_62cec.dir/build.make CMakeFiles/cmTC_62cec.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_62cec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_62cec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_62cec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_62cec.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_62cec.dir/CheckFunctionExists.c.o  -o cmTC_62cec 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d1499/fast && /usr/bin/make -f CMakeFiles/cmTC_d1499.dir/build.make CMakeFiles/cmTC_d1499.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d1499.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_d1499.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d1499
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1499.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_d1499.dir/CheckFunctionExists.c.o  -o cmTC_d1499 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4764b/fast && /usr/bin/make -f CMakeFiles/cmTC_4764b.dir/build.make CMakeFiles/cmTC_4764b.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_4764b.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_4764b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4764b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4764b.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_4764b.dir/CheckFunctionExists.c.o  -o cmTC_4764b 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ffd84/fast && /usr/bin/make -f CMakeFiles/cmTC_ffd84.dir/build.make CMakeFiles/cmTC_ffd84.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ffd84.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_ffd84.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ffd84
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffd84.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_ffd84.dir/CheckFunctionExists.c.o  -o cmTC_ffd84 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_76f49/fast && /usr/bin/make -f CMakeFiles/cmTC_76f49.dir/build.make CMakeFiles/cmTC_76f49.dir/build
+make[1]: 进入目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_76f49.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_76f49.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_76f49
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76f49.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTC_76f49.dir/CheckFunctionExists.c.o  -o cmTC_76f49  -lICE 
+make[1]: 离开目录“/home/penghua/BasestaDect/build/CMakeFiles/CMakeTmp”
+
+
+
