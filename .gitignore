@@ -1,3 +1,5 @@
 /.vscode/*
+/src/csv_data/*
 /src/*.csv
 /fig_result/*.jpg
+/*.jpg
