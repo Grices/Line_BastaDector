@@ -11,7 +11,7 @@ class Extrali
     public:
         Extrali(std::vector<attribute::Points>& scanpoints)
         {
-            this->target = getGoal(getVect(scanpoints));
+            // this->target = getGoal(getVect(scanpoints));
         }
 }; 
 

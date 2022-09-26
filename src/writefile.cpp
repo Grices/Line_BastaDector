@@ -6,6 +6,7 @@
 #include <vector>
 #include "include/resbyfit.h"
 #include "include/resbyvec.h"
+#include "include/vectencap.h"
 
 class Readdata
 {
@@ -21,7 +22,7 @@ class Readdata
     public:
         void operator()(void)
         {
-            std::ifstream iFile("/home/penghua/BasestaDect/src/dzbin_data/lds_pointdz.bin", std::ios::binary);
+            std::ifstream iFile("/home/penghua/BasestaDect/src/dzbin_data/lds_pointdz9.bin", std::ios::binary);
             if(!iFile.is_open())
             {
                 std::cout << "File not exits. " << std::endl;
@@ -110,6 +111,7 @@ class Readdata
 
                 /* 提取向量 */
                 std::vector<attribute::Vect> vcsd = getVect(this->mread_point);
+                vcsd = vectMerge(vcsd);
                 for(auto k = vcsd.begin(); k != vcsd.end(); k++)
                 {
                     char filepath[128]; //循环写入
@@ -120,12 +122,13 @@ class Readdata
                         // oFile << l->x << "," << l->y << "," << l->dis << "," << l->theta << "," << l->power << std::endl;
                         oFile << l->x << "," << l->y << std::endl;
                     }
+                    // std::cout << "file" << std::endl;
                     oFile.close(); //循环写入
                     fileti++; //循环写入
                 }
 
                 /* 获取目标点 */
-                // attribute::Points* point = getGoal(getVect(this->mread_point));
+                // attribute::Points* point = getFinalgoal(vcsd);
                 // if(point != NULL)
                 // {
                 //     std::cout << point->x << ", " << point->y << std::endl;
@@ -135,8 +138,10 @@ class Readdata
                 //     std::cout << "There is no goal." << std::endl; 
                 // }
                 // delete point;
-
-
+                /* 封装方式获取目标点 */
+                Extracvect tess(this->mread_point);
+                attribute::Points gg = tess.showGoal();
+                std::cout << gg.x << ", " << gg.y << std::endl;
                 // oFile.close(); //单个写入
             }
             iFile.close();

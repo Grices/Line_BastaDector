@@ -30,6 +30,10 @@ licifit.h
 attribute.h
 /home/penghua/BasestaDect/src/include/attribute.h
 
+/home/penghua/BasestaDect/src/include/vectencap.h
+resbyvec.h
+/home/penghua/BasestaDect/src/include/resbyvec.h
+
 /home/penghua/BasestaDect/src/writefile.cpp
 iostream
 -
@@ -43,4 +47,6 @@ include/resbyfit.h
 /home/penghua/BasestaDect/src/include/resbyfit.h
 include/resbyvec.h
 /home/penghua/BasestaDect/src/include/resbyvec.h
+include/vectencap.h
+/home/penghua/BasestaDect/src/include/vectencap.h
 

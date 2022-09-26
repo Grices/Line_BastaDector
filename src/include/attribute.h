@@ -102,7 +102,7 @@ class Vect
         }
 };
 
-/* 基于引力的簇合并 点数&距离 */
+/* 基于引力的簇合并 点数*距离 */
 class Gravate
 {
     public:
@@ -199,7 +199,7 @@ class Sacnpcluter
                         it_clu->push_back(*it_next);
                     }
 
-                    it_clu = cluster.erase(it_clu += 2);
+                    it_clu = cluster.erase(it_clu ++);
                 }
                 else
                 { it_clu++; }
@@ -465,17 +465,17 @@ std::vector<Points> preSmooth(std::vector<Points>& prepoi)
     // }
 
     // attribute::Points tmp_p = *(prepoi.begin() + 1);
-        int flag = 0;
+    int flag = 0;
     for(std::vector<attribute::Points>::iterator poi_smo = prepoi.begin() + 1; poi_smo != prepoi.end(); poi_smo++)
     {
         float cheper = Points::cheby_Propor(*poi_smo, *(poi_smo - 1));
-        // std::cout << cheper << std::endl;
+        
         if(cheper > 2.747f)
         {
             poi_smo->x = (poi_smo - 1)->x;
             flag = 1;
         }
-        else if(cheper < 0.364f)
+        else if(cheper < 0.363f)
         {
             poi_smo->y = (poi_smo - 1)->y;
             flag = 2;

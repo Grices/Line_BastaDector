@@ -5,5 +5,6 @@ CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o: ../src/include/attribute.h
 CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o: ../src/include/licifit.h
 CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o: ../src/include/resbyfit.h
 CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o: ../src/include/resbyvec.h
+CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o: ../src/include/vectencap.h
 CMakeFiles/WRITEFILE.dir/src/writefile.cpp.o: ../src/writefile.cpp
 
